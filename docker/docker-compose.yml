@@ -391,7 +391,7 @@ services:
     restart: unless-stopped
     # temporary port forwarding while supavisor not turned on
     ports:
-      - ${POSTGRES_PORT}:5432
+      - ${NODE_IP}:${POSTGRES_PORT}:5432
     volumes:
       - ./volumes/db/realtime.sql:/docker-entrypoint-initdb.d/migrations/99-realtime.sql:Z
       # Must be superuser to create event trigger
